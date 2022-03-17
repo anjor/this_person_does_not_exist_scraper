@@ -20,7 +20,7 @@ class Estuary:
         return {"Authorization": "Bearer " + self.api_key}
 
     def list_data(self):
-        resp = requests.get(url=Estuary.base_url + "/content/stats", headers=self._get_auth_header())
+        resp = requests.get(url=Estuary.base_url + "/content/stats", headers=self.auth_header)
         if resp.status_code == 200:
             return resp.json()
 
