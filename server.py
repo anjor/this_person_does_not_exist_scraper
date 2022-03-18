@@ -9,11 +9,6 @@ def construct_url(cid):
     return "https://" + cid + ".ipfs.dweb.link"
 
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
-
-
 @app.route("/data/list")
 def list_data():
     data = estuary.list_data()

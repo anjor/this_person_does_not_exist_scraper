@@ -10,6 +10,7 @@ class Estuary:
         self.config_file = config_file
         self.api_key = self._parse_api_key()
         self.auth_header = self._get_auth_header()
+        self.data = None
 
     def _parse_api_key(self, section='DEFAULT'):
         config = configparser.ConfigParser()
@@ -20,9 +21,12 @@ class Estuary:
         return {"Authorization": "Bearer " + self.api_key}
 
     def list_data(self):
-        resp = requests.get(url=Estuary.base_url + "/content/stats", headers=self.auth_header)
-        if resp.status_code == 200:
-            return resp.json()
+        if not self.data:
+            resp = requests.get(url=Estuary.base_url + "/content/stats", headers=self.auth_header)
+            if resp.status_code == 200:
+                self.data = resp.json()
+
+        return self.data
 
     def add_data(self, data_dir, filename):
         with open(os.path.join(data_dir, filename), 'rb') as file:
@@ -40,6 +44,3 @@ class Estuary:
             print(resp.json())
 
         return resp.status_code
-
-
-estuary = Estuary()
