@@ -4,7 +4,7 @@ import requests
 
 
 class Estuary:
-    base_url = "https://shuttle-4.estuary.tech"
+    base_url = "https://api.estuary.tech"
 
     def __init__(self, config_file="./estuary.conf"):
         self.config_file = config_file
