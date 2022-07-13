@@ -6,16 +6,17 @@ import requests
 class Estuary:
     base_url = "http://staging.estuary.tech:3004"
 
-    def __init__(self, config_file="./estuary.conf"):
-        self.config_file = config_file
-        self.api_key = self._parse_api_key()
+    def __init__(self, api_key):
+    #    self.config_file = config_file
+    #    self.api_key = self._parse_api_key()
+        self.api_key = api_key
         self.auth_header = self._get_auth_header()
         self.data = None
 
-    def _parse_api_key(self, section='DEFAULT'):
-        config = configparser.ConfigParser()
-        config.read(self.config_file)
-        return config[section]['API_KEY']
+    #def _parse_api_key(self, section='DEFAULT'):
+    #    config = configparser.ConfigParser()
+    #    config.read(self.config_file)
+    #    return config[section]['API_KEY']
 
     def _get_auth_header(self):
         return {"Authorization": "Bearer " + self.api_key}
