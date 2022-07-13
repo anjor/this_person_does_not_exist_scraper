@@ -25,9 +25,9 @@ def upload_n_new_images(n, data_dir="./data", api_key=None):
 
 
 def main():
-    os.makedirs("./data", exist_ok=False)
+    os.makedirs("./data", exist_ok=True)
     api_key = os.getenv("API_KEY")
-    upload_n_new_images(100, api_key)
+    upload_n_new_images(100, api_key=api_key)
 
 
 if __name__ == '__main__':
