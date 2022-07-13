@@ -25,6 +25,7 @@ def upload_n_new_images(n, data_dir="./data"):
 
 
 def main():
+    os.makedirs("./data", exist_ok=False)
     upload_n_new_images(100)
 
 
