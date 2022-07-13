@@ -25,9 +25,7 @@ def upload_n_new_images(n, data_dir="./data"):
 
 
 def main():
-    #upload_n_new_images(320)
-    estuary = Estuary()
-    print(estuary.list_data())
+    upload_n_new_images(100)
 
 
 if __name__ == '__main__':

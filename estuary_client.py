@@ -4,7 +4,7 @@ import requests
 
 
 class Estuary:
-    base_url = "https://api.estuary.tech"
+    base_url = "http://staging.estuary.tech:3004"
 
     def __init__(self, config_file="./estuary.conf"):
         self.config_file = config_file
@@ -39,6 +39,7 @@ class Estuary:
 
         if resp.status_code == 200:
             print("Uploaded " + filename)
+            print(resp.json())
         else:
             print(resp.status_code)
             print(resp.json())
