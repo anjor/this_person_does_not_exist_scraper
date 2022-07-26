@@ -40,9 +40,7 @@ class Estuary:
 
         if resp.status_code == 200:
             print("Uploaded " + filename)
-            print(resp.json())
         else:
             print(resp.status_code)
-            print(resp.json())
 
         return resp.status_code
